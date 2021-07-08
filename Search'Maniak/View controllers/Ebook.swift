@@ -22,6 +22,7 @@ class EBookViewController: UIViewController, UISearchBarDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         searchBar.delegate=self
         tableView.dataSource=self
         tableView.layer.backgroundColor=UIColor.clear.cgColor
@@ -87,6 +88,7 @@ class EBookViewController: UIViewController, UISearchBarDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (data.songs.count == 0 && searchBar.text != "") {
             self.tableView.setEmptyMessage("Désolé! Aucun ebook n'a été trouvé.")
+            self.message.text = ""
         } else {
             self.tableView.restore()
         }

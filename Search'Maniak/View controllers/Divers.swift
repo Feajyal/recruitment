@@ -22,6 +22,7 @@ class DiversViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         searchBar.delegate=self
         tableView.dataSource=self
         tableView.layer.backgroundColor=UIColor.clear.cgColor
@@ -88,6 +89,7 @@ class DiversViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (data.songs.count == 0 && searchBar.text != "") {
             self.tableView.setEmptyMessage("Désolé! Aucun résultat n'a été trouvé.")
+            self.message.text = ""
         } else {
             self.tableView.restore()
         }
